@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елена Лялькина — Исследователь-стратег</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-ivory: #F5F0E8;
+            --bg-white: #FAFAF8;
+            --graphite: #2C2C2C;
+            --graphite-light: #555555;
+            --terracotta: #C4785A;
+            --honey: #D4A96A;
+            --border: #E8DCCB;
+            --font-head: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--graphite); background-color: var(--bg-ivory); line-height: 1.6; overflow-x: hidden; font-weight: 300; }
+        h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 400; line-height: 1.1; color: var(--graphite); }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        .grid-bg { position: relative; }
+        .grid-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(44,44,44,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(44,44,44,0.03) 1px, transparent 1px); background-size: 64px 64px; z-index: 0; pointer-events: none; }
+        .title-xl { font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.5px; margin-bottom: 1.5rem; }
+        .title-lg { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 2rem; }
+        .title-md { font-size: 1.8rem; margin-bottom: 1rem; }
+        .subtitle { font-size: 1.1rem; font-weight: 300; margin-bottom: 2.5rem; color: var(--graphite-light); line-height: 1.8; }
+        .accent-text { color: var(--terracotta); }
+        .role-tag { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--honey); margin-bottom: 1rem; display: block; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2.5rem; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid var(--terracotta); cursor: pointer; transition: var(--transition); background: transparent; color: var(--terracotta); text-align: center; }
+        .btn:hover { background-color: var(--terracotta); color: var(--bg-white); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(196,120,90,0.15); }
+        .btn-primary { background-color: var(--terracotta); color: var(--bg-white); }
+        .btn-primary:hover { background-color: var(--graphite); border-color: var(--graphite); }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        section { padding: 8rem 0; }
+        header { position: fixed; top: 0; left: 0; right: 0; padding: 1.5rem 0; background-color: rgba(245,240,232,0.95); backdrop-filter: blur(10px); z-index: 100; transition: var(--transition); }
+        header.scrolled { padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.03); border-bottom: 1px solid var(--border); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-head); font-size: 1.8rem; color: var(--graphite); letter-spacing: 1px; }
+        .logo span { font-size: 0.9rem; font-family: var(--font-body); color: var(--graphite-light); margin-left: 10px; letter-spacing: 0; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        .hero-content { max-width: 850px; }
+        .formula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 4rem; }
+        .formula-card { background: var(--bg-white); padding: 3rem 2rem; border: 1px solid var(--border); transition: var(--transition); }
+        .formula-card:hover { border-color: var(--honey); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.04); }
+        .formula-icon { font-size: 2rem; color: var(--honey); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .formula-icon .step-num { font-family: var(--font-head); font-size: 1.2rem; color: var(--graphite-light); opacity: 0.5; }
+        .formula-card p { color: var(--graphite-light); font-size: 0.95rem; }
+        .audience { background-color: var(--bg-white); }
+        .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .audience-card { background: var(--bg-ivory); padding: 3rem; border: 1px solid var(--border); transition: var(--transition); }
+        .audience-card:hover { border-color: var(--terracotta); background: var(--bg-white); }
+        .audience-card h3 { font-size: 1.6rem; margin-bottom: 1.5rem; font-style: italic; color: var(--terracotta); }
+        .audience-card p { color: var(--graphite-light); font-size: 0.95rem; line-height: 1.7; }
+        .value-section { background-color: var(--bg-ivory); }
+        .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .value-card { padding: 2.5rem; border-left: 3px solid var(--terracotta); background: var(--bg-white); transition: var(--transition); }
+        .value-card:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.04); }
+        .value-card h3 { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--terracotta); margin-bottom: 1rem; font-weight: 500; }
+        .value-card p { color: var(--graphite-light); font-size: 0.95rem; line-height: 1.7; }
+        .process-section { background-color: var(--bg-white); }
+        .process-list { margin-top: 3rem; }
+        .process-item { display: grid; grid-template-columns: 60px 1fr; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--border); }
+        .process-item:last-child { border-bottom: none; }
+        .process-num { font-family: var(--font-head); font-size: 3rem; color: var(--honey); line-height: 1; opacity: 0.6; }
+        .process-content h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--graphite); margin-bottom: 0.5rem; }
+        .process-content p { color: var(--graphite-light); font-size: 0.95rem; line-height: 1.7; }
+        .results-section { text-align: center; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin: 4rem 0; }
+        .result-item { padding: 2rem; border-bottom: 1px solid var(--border); }
+        .result-number { font-family: var(--font-head); font-size: clamp(3rem, 5vw, 4rem); color: var(--graphite); margin-bottom: 1rem; line-height: 1; }
+        .result-text { color: var(--graphite-light); font-size: 1rem; }
+        .results-footer { font-family: var(--font-body); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; color: var(--terracotta); margin-top: 2rem; }
+        .about-section { background-color: var(--bg-ivory); position: relative; overflow: hidden; }
+        .about-bg-icon { position: absolute; right: -5%; top: 50%; transform: translateY(-50%); font-size: 40vw; color: var(--bg-white); opacity: 0.5; z-index: 0; pointer-events: none; }
+        .about-content { max-width: 700px; font-size: 1.1rem; color: var(--graphite-light); position: relative; z-index: 1; }
+        .about-content p { margin-bottom: 1.5rem; }
+        .mission { background-color: var(--graphite); color: var(--bg-ivory); text-align: center; padding: 10rem 0; }
+        .mission blockquote { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem); font-style: italic; max-width: 900px; margin: 0 auto 3rem; line-height: 1.4; color: var(--bg-ivory); }
+        .mission .slogan { font-family: var(--font-body); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--honey); }
+        .cta-section { text-align: center; background-color: var(--bg-ivory); }
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .cta-disclaimer { font-size: 0.85rem; color: var(--graphite-light); max-width: 500px; margin: 0 auto; font-style: italic; }
+        footer { background-color: var(--bg-white); padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer-name { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .footer-role { font-size: 0.85rem; color: var(--graphite-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; }
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+        .social-links a { color: var(--graphite); font-size: 1.2rem; transition: var(--transition); }
+        .social-links a:hover { color: var(--terracotta); }
+        .footer-slogan { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--graphite-light); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { section { padding: 5rem 0; } .hero { padding-top: 120px; } .formula-grid, .audience-grid, .results-grid, .value-grid { grid-template-columns: 1fr; gap: 2rem; } .cta-buttons { flex-direction: column; } .about-bg-icon { display: none; } }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container nav-container">
+            <div class="logo">Елена Лялькина <span>Исследователь-стратег</span></div>
+        </div>
+    </header>
+
+    <section class="hero grid-bg">
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="role-tag">Елена Лялькина · Исследователь-стратег</span>
+                <h1 class="title-xl">Ваш продукт достоин тех целей, <span class="accent-text">ради которых его покупают.</span></h1>
+                <p class="subtitle">Помогаю экспертам и бизнесу снизить расходы на хаотичный маркетинг и увеличить доход — через исследование продукта до упаковки и рекламы.</p>
+                <a href="#cta" class="btn btn-primary">Пиши АУДИТ</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="formula-section">
+        <div class="container">
+            <h2 class="title-lg reveal">Моя формула</h2>
+            <div class="formula-grid">
+                <div class="formula-card reveal">
+                    <div class="formula-icon"><i class="fa-solid fa-magnifying-glass"></i><span class="step-num">01</span></div>
+                    <h3 class="title-md">Исследую</h3>
+                    <p>Глубинный аудит продукта и аудитории через JTBD и CustDev — нахожу истинные мотивы ваших клиентов.</p>
+                </div>
+                <div class="formula-card reveal" style="transition-delay: 0.1s;">
+                    <div class="formula-icon"><i class="fa-solid fa-sitemap"></i><span class="step-num">02</span></div>
+                    <h3 class="title-md">Систематизирую</h3>
+                    <p>Стратегия и смысловая упаковка. Проектирую путь клиента (CJM) и чёткое позиционирование.</p>
+                </div>
+                <div class="formula-card reveal" style="transition-delay: 0.2s;">
+                    <div class="formula-icon"><i class="fa-solid fa-compass"></i><span class="step-num">03</span></div>
+                    <h3 class="title-md">Проектирую</h3>
+                    <p>Строю инфраструктуру под вашу воронку — прототипы, продающие страницы, продуктовую линейку и рекламу (Facebook Ads).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience grid-bg">
+        <div class="container">
+            <h2 class="title-lg reveal" style="text-align: center;">Вы узнаёте себя?</h2>
+            <div class="audience-grid">
+                <div class="audience-card reveal">
+                    <h3>"Эксперт у порога онлайна"</h3>
+                    <p>Работаю офлайн по сарафану. Продукт сильный — но не знаю с чего начать в онлайне правильно, чтобы не наделать ошибок.</p>
+                </div>
+                <div class="audience-card reveal" style="transition-delay: 0.1s;">
+                    <h3>"Разочарованный онлайн-эксперт"</h3>
+                    <p>Вложила деньги в маркетолога и рекламу. Результата нет. Не понимаю, почему не покупают если я реально помогаю людям.</p>
+                </div>
+                <div class="audience-card reveal" style="transition-delay: 0.2s;">
+                    <h3>"Эксперт с ростом"</h3>
+                    <p>Уже работаю онлайн, есть продажи. Но упёрлась в потолок — масштабирование не идёт.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-section">
+        <div class="container">
+            <h2 class="title-lg reveal">Что вы получите <span class="accent-text">в результате</span></h2>
+            <p class="subtitle reveal" style="max-width: 600px;">Не просто красивый сайт или настроенный кабинет — а понимание и система, которая снижает расходы и работает на рост дохода.</p>
+            <div class="value-grid">
+                <div class="value-card reveal">
+                    <h3>Ясность</h3>
+                    <p>Понимание кто ваша реальная аудитория, почему они покупают и что для них действительно важно.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.1s;">
+                    <h3>Позиционирование</h3>
+                    <p>Чёткое и честное позиционирование которое отстраивает от конкурентов и притягивает именно вашу аудиторию.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.2s;">
+                    <h3>Стратегия</h3>
+                    <p>Готовую стратегию запуска — без хаоса и догадок. Каждый шаг основан на данных а не на интуиции.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.3s;">
+                    <h3>Система</h3>
+                    <p>Инфраструктуру под вашу воронку и рекламу — потому что в основе исследование а не шаблоны.</p>
+                </div>
+                <div class="value-card reveal" style="transition-delay: 0.4s; border-left-color: var(--honey);">
+                    <h3 style="color: var(--honey);">Экономия и рост</h3>
+                    <p>Меньше денег на то, что не работает. Больше дохода с того, что уже есть. Каждое решение — обоснованное, а не на ощупь.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section grid-bg">
+        <div class="container">
+            <h2 class="title-lg reveal">Как я <span class="accent-text">работаю</span></h2>
+            <p class="subtitle reveal" style="max-width: 600px;">Простой и понятный процесс — от первого созвона до первых продаж.</p>
+            <div class="process-list">
+                <div class="process-item reveal">
+                    <div class="process-num">01</div>
+                    <div class="process-content">
+                        <h3>Знакомство и аудит</h3>
+                        <p>Созвон где я глубоко погружаюсь в ваш продукт и экспертизу. Задаю вопросы которые другие не задают — чтобы понять реальную ценность того что вы делаете.</p>
+                    </div>
+                </div>
+                <div class="process-item reveal">
+                    <div class="process-num">02</div>
+                    <div class="process-content">
+                        <h3>Исследование аудитории</h3>
+                        <p>Провожу глубинные интервью с вашими клиентами по методологии JTBD. Нахожу истинные мотивы покупки — то что они сами не всегда могут сформулировать.</p>
+                    </div>
+                </div>
+                <div class="process-item reveal">
+                    <div class="process-num">03</div>
+                    <div class="process-content">
+                        <h3>Стратегия и упаковка</h3>
+                        <p>На основе исследования проектирую позиционирование, продуктовую линейку и путь клиента. Только после этого — смыслы, тексты и визуал.</p>
+                    </div>
+                </div>
+                <div class="process-item reveal">
+                    <div class="process-num">04</div>
+                    <div class="process-content">
+                        <h3>Реализация и запуск</h3>
+                        <p>Выстраиваю инфраструктуру под вашу воронку: прототипы, продающие страницы, продуктовую линейку, аналитику и рекламу в Facebook/Instagram. Под каждый проект — своё решение, а не шаблон. При необходимости создаю инструменты, которые убирают рутину из вашей работы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <h2 class="title-lg reveal">Цифры, которые говорят <span class="accent-text">сами за себя</span></h2>
+            <div class="results-grid">
+                <div class="result-item reveal">
+                    <div class="result-number">1199%</div>
+                    <h3 style="font-family: var(--font-body); font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">ROAS</h3>
+                    <p class="result-text">€500 вложений → €6 000 выручки</p>
+                </div>
+                <div class="result-item reveal" style="transition-delay: 0.1s;">
+                    <div class="result-number">841%</div>
+                    <h3 style="font-family: var(--font-body); font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">ROAS</h3>
+                    <p class="result-text">в нише премиального туризма</p>
+                </div>
+                <div class="result-item reveal" style="transition-delay: 0.2s;">
+                    <div class="result-number">$31 000</div>
+                    <h3 style="font-family: var(--font-body); font-size: 1.2rem; font-weight: 500; margin-bottom: 0.5rem;">Выручка</h3>
+                    <p class="result-text">с одного запуска онлайн-школы</p>
+                </div>
+            </div>
+            <div class="results-footer reveal">30+ ниш &nbsp;·&nbsp; США &nbsp;·&nbsp; Европа &nbsp;·&nbsp; ОАЭ &nbsp;·&nbsp; СНГ</div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <i class="fa-solid fa-border-all about-bg-icon"></i>
+        <div class="container">
+            <h2 class="title-lg reveal">Кто я</h2>
+            <div class="about-content reveal">
+                <p><strong>10 лет в продажах</strong> — знаю как люди принимают решение о покупке.</p>
+                <p><strong>2 года управления филиалом банковского центра</strong> — понимаю бизнес изнутри, умею считать деньги и окупаемость.</p>
+                <p><strong>3+ года в таргете</strong> — 30+ ниш на рынках США, Европы и ОАЭ.</p>
+                <p style="margin-top: 2rem; font-family: var(--font-head); font-size: 1.5rem; color: var(--terracotta);">Методология JTBD + Смысловая упаковка + Facebook Ads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission">
+        <div class="container reveal">
+            <blockquote>"Я создаю мир, где ценность продукта всегда выше его цены, а маркетинг — это не манипуляция, а проявление смысла."</blockquote>
+            <div class="slogan">Честность &middot; Ценность &middot; Свобода</div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container reveal">
+            <h2 class="title-lg">Готова исследовать <span class="accent-text">ваш продукт</span></h2>
+            <p class="subtitle" style="margin-bottom: 3rem;">Напишите слово <strong>АУДИТ</strong> — и я расскажу, с чего начать именно в вашем случае.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary"><i class="fa-brands fa-telegram" style="margin-right: 10px;"></i> Написать в Telegram</a>
+                <a href="#" class="btn"><i class="fa-brands fa-instagram" style="margin-right: 10px;"></i> Написать в Instagram</a>
+            </div>
+            <p class="cta-disclaimer">* Работаю только с продуктами, которые несут реальную ценность своей аудитории.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container reveal">
+            <div class="footer-name">Елена Лялькина</div>
+            <div class="footer-role">Исследователь-стратег</div>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="footer-slogan">Честность &middot; Ценность &middot; Свобода</div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
